@@ -217,7 +217,7 @@ const Hero = styled.div`
     height: 500px;
     text-align: center;
     background-color: #DEF6F6;
-    dislay: flex;
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
     padding-block: 20px;
@@ -256,7 +256,7 @@ const Hero = styled.div`
    `;
    const Inherit = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     padding-block: 10px;
     
     @media screen and (max-width: 800px){
@@ -270,6 +270,7 @@ const Hero = styled.div`
     `;
     
     const Arrows = styled.div`
+    padding-block: 20px;
     @media screen and (max-width: 1000px){
         display: none;
     }

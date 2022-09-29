@@ -123,7 +123,7 @@ export default function BookingForm() {
     <Bookingform>
        {/* <Header /> */}
         <div className='one'>
-            <h3>Complete your booking</h3>        
+            {/* <h3>Complete your booking</h3>         */}
         </div>
         <div className='two'>
             <p>CHOOSE SERVICE TYPE</p>
@@ -200,6 +200,7 @@ width: 100vw;
  display: grid;
  grid-template-columns: repeat(5,1fr);
  gap: 20px;
+ justify-content: center;
  /* box-shadow: 1px 2px 2px 2px #000; */
  padding: 10px;
  width: 50%;

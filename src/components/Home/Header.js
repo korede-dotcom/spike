@@ -35,14 +35,14 @@ function Header() {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative; */
     background-color: #fff;
-    padding: 10px 0px;
+    /* padding: 10px 0px; */
     box-shadow: 1px 1px 2px 2px #eeee;
     position: fixed;
     left: 0;
     right: 0;
-    // height: 7vh;
+    height: 7vh;
     z-index:1;
     
     .menuicon{
@@ -68,6 +68,13 @@ function Header() {
 
    & > .show{
       display: flex;
+      color: #43AFE2;
+      background-color: #43AFE2;
+
+      > a{
+        padding: 10px .1em;
+      }
+
     }
 
     & > .active{
@@ -82,8 +89,7 @@ function Header() {
   const NavList = styled.nav`
       display: flex;
       gap: 30px;
-      padding: 30px 0 0 30px;
-     
+      /* padding: 30px; */
      
    a{
       color: black;
@@ -103,12 +109,17 @@ function Header() {
    @media screen and (max-width: 40em) {
       flex-direction: column;
       position: absolute;
+      gap: 20px;
       top: 7vh;
       left: 0;
       width: 70%;
       height: 100vh;
       background-color: #1650A3;
       display: none;
+      font-size: 22px;
+      color: #fff;
+      padding: 2em;
+      /* justify-content: space-around; */
     }
   
     /* background-color: black; */
