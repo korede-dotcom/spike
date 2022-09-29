@@ -20,15 +20,15 @@ export const links = [
         name:"Contact",
         link:"/contact"
     },
-    {
-        id:4,
-        name:"Carpet Cleaning",
-        link:"/carpetcleaning"
-    },
-    {
-        id:4,
-        name:"Office Cleaning",
-        link:"/officecleaning"
-    },
+    // {
+    //     id:4,
+    //     name:"Carpet Cleaning",
+    //     link:"/carpetcleaning"
+    // },
+    // {
+    //     id:4,
+    //     name:"Office Cleaning",
+    //     link:"/officecleaning"
+    // },
 
 ]

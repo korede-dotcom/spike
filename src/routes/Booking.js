@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import Header from '../components/Home/Header'
-import Input from '../reuseable/Input'
-import { useState } from 'react'
-import BookingForm from '../components/BookingForm'
-import Summary from '../reuseable/Summary'
+import React from 'react';
+import styled from 'styled-components';
+import Header from '../components/Home/Header';
+import Input from '../reuseable/Input';
+import { useState } from 'react';
+import BookingForm from '../components/BookingForm';
+// import Summary from '../reuseable/Summary';
 
 
 
@@ -17,14 +17,14 @@ export default function Booking() {
     <Bookingcontainer>
       <Header/>
         <div className='header'>
-        <h1>Make a Booking</h1>
-        <p>select a service, choose a date & pay securely</p>
+          <h1>Make a Booking</h1>
+          <p>select a service, choose a date & pay securely</p>
         </div>
       <Content>
         <div className='formcontainer'>
         <BookingForm/>
         </div>
-      <Summary/>
+      {/* <Summary/> */}
       </Content>
 
     </Bookingcontainer>

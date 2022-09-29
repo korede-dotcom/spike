@@ -37,12 +37,13 @@ function Header() {
     align-items: center;
     position: relative;
     background-color: #fff;
-    padding: 10px;
+    padding: 10px 0px;
     box-shadow: 1px 1px 2px 2px #eeee;
     position: fixed;
     left: 0;
     right: 0;
-    height: 7vh;
+    // height: 7vh;
+    z-index:1;
     
     .menuicon{
       display: none;
@@ -72,13 +73,16 @@ function Header() {
     & > .active{
       border-bottom: #43AFE2;
     }
+    @media screen and (max-width: 1000px){
+      padding: 15px;
+    }
    
   
   `;
   const NavList = styled.nav`
       display: flex;
       gap: 30px;
-
+      padding: 30px 0 0 30px;
      
      
    a{
@@ -109,8 +113,6 @@ function Header() {
   
     /* background-color: black; */
   `;
-
-
 
 
 

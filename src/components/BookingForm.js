@@ -16,7 +16,8 @@ import { useState } from 'react'
 
 
 export default function BookingForm() {
-    const [select,setSelect] = useState(!true)
+   //  const [select,setSelect] = useState(!true)
+   const [select, setselect] = useState()
     const others = [
       {
         id:1,
@@ -120,13 +121,14 @@ export default function BookingForm() {
     //   ]
   return (
     <Bookingform>
+       {/* <Header /> */}
         <div className='one'>
-        <h3>Complete your booking</h3>        
+            <h3>Complete your booking</h3>        
         </div>
         <div className='two'>
             <p>CHOOSE SERVICE TYPE</p>
-            <br></br>
-        <Selects option={options}/>
+            {/* <br></br> */}
+        <Selects option={options} value={select} onChange={e => setselect(e.target.value)}/>
              {/* <Input type='text' placeholder="text" /> */}
         </div>
         <div className='three'>
@@ -180,10 +182,10 @@ export default function BookingForm() {
            }
         </div>
         </div>
-        <div className='fourteen'>
+        {/* <div className='fourteen'>
            <h3>WHO YOU ARE</h3>
            <p>This information will be used to contact you about your service</p>
-        </div>
+        </div> */}
 
 
     </Bookingform>
@@ -193,9 +195,10 @@ export default function BookingForm() {
 
 
 const Bookingform = styled.div`
-
+min-height: 100vh;
+width: 100vw;
  display: grid;
- grid-template-columns: repeat(3,1fr);
+ grid-template-columns: repeat(5,1fr);
  gap: 20px;
  /* box-shadow: 1px 2px 2px 2px #000; */
  padding: 10px;
@@ -236,7 +239,8 @@ const Bookingform = styled.div`
 
 
  .one{
-    grid-column: 1/4;
+    grid-column: 2/5;
+    border:1px solid red;
     grid-row: 1;
  }
  .two{
