@@ -4,6 +4,7 @@ import {useState} from 'react';
 import Header from '../components/Home/Header';
 import Learning from '../reuseable/Learn';
 import Dity from '../reuseable/Dity';
+import { Link } from 'react-router-dom';
 const AboutUS = () => {
     return(
         <Aboutcontainer>
@@ -17,7 +18,7 @@ const AboutUS = () => {
                     <h1>"keeping your home or office clean <br/> can be hard to manage" </h1> 
                     <p>we've got your back,being open 7 days a week allows <br/> us to aid with anyone's unique schedule</p>
                     <div className='button'>
-                        <a><h3>Book Us</h3></a>
+                        <Link to="/booknow"><h3>Book Us</h3></Link>
                     </div>
                 </div>
             </Cleaning> 
@@ -33,6 +34,11 @@ const AboutUS = () => {
 const Aboutcontainer = styled.div`
 overflow: hidden;
 width: 100vw;
+
+
+* a{
+    text-decoration: none;
+}
 
 `;
 
@@ -50,8 +56,9 @@ align-items: start;
 `;
 
 const Cleaning = styled.div`
-    width: 91vw;
-    padding-inline: 9vw;
+    width: 100%;
+    margin: 0 auto;
+    /* padding-inline: 9vw; */
     margin-top: 15vh;
 
 .clean{
