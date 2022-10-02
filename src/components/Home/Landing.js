@@ -17,7 +17,12 @@ import Step1 from '../../assests/step1.svg'
 import Step2 from '../../assests/step2.svg'
 import Step3 from '../../assests/step3.svg'
 import Arrow from '../../assests/arrowRight.svg'
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import Carousel  from 'nuka-carousel';
+import Toilet from '../../assests/toilet.jpg';
+import Jakuzi from '../../assests/jakuzi.jpg';
+import kitchen from '../../assests/kitchen.jpeg';
+import Sink from '../../assests/sink.jpeg'
 export default function Landing() {
   return (
     <div>
@@ -71,10 +76,36 @@ export default function Landing() {
               </Inherit>
             </WordCon>
           </Works>
+          <Images>
+            <Carousel>
+            <img src={Toilet} />
+                <img src={Jakuzi} />
+                <img src={kitchen} />
+                <img src={Sink} />
+            </Carousel>
+          </Images>
 
     </div>
   )
 }
+
+
+const Images = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+   > img{
+    width: 50px;
+    height: 70px;
+
+   }
+
+& > .slider-wrapper ul {
+      display: flex;
+  }
+  
+
+`
+
 const Hero = styled.div`
     grid-column:1/13 ;
     height: 93vh;

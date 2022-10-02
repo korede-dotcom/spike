@@ -2,36 +2,83 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/Home/Header';
 import arrow from '../assests/arrow-right.svg';
+import { useState } from 'react';
 
 const Contact = () => {
+    const [name,setName] = useState('')
+    const [email,setEmail] = useState('')
+    const [subject,setSubject] = useState('')
+    const [message,setMessage] = useState('')
+    const [phone,setPhone] = useState('')
+    const [loading,setLoading] = useState(false)
+    const [result,setresult] = useState('')
+
+    
+    const formData = new FormData();
+    async function handleClick (e) {
+        e.preventDefault()
+        // formData.append('name', name);
+        // formData.append('email', email);
+        // formData.append('subject', subject);
+        // formData.append('phone', phone);
+        // formData.append('message', message);
+        setLoading(true)
+
+        const response = await fetch("http://localhost:1300/contact",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                name,
+                email,
+                subject,
+                phone,
+                message
+            })
+                    
+        })
+        const data = await response.json()
+        console.log(data)
+        setresult(data)
+        setLoading(false)
+    }
+    
     return(
         <Body>
             <Header />
             <Head>
+                <form>
                 <div className='heading'>
                     <h1>we'd love to fear from you</h1>
                 </div>
+                {result.status === true ? <p style={{color:"green"}}>{result.message}</p> : <p style={{color:"red"}}>{result.message}</p>}
                 <div className='form'>
                     <div className='input'>
                         <h3>what's your full name? (required) <span>*</span></h3>
-                        <input type='text' placeholder='eg. John Doe'/>
+                        <input type='text' placeholder='eg. John Doe' value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
                     <div className='input'>
                         <h3>your email address? (required) <span>*</span></h3>
-                        <input type='text' placeholder='eg. Youremailaddress@gmail.com'/>
+                        <input type='text' placeholder='eg. Youremailaddress@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </div>
+                    <div className='input'>
+                        <h3>your phone Number (required) <span>*</span></h3>
+                        <input type='text' placeholder='01-234-5678' value={phone} onChange={(e) => setPhone(e.target.value)} />
                     </div>
                     <div className='input'>
                         <h3>Subject <span>*</span></h3>
-                        <input type='text' />
+                        <input type='text'  value={subject} onChange={(e)=> setSubject(e.target.value)} />
                     </div>
                     <div className='input'>
                         <h3>your message (required)<span> *</span></h3>
-                        <textarea rows='10' cols='100'></textarea>
+                        <textarea rows='10' cols='100' value={message} onChange={(e) => setMessage(e.target.value)} ></textarea>
                     </div>
                 </div>
-                <div className='send'>
-                    <a href='#'><span>send message</span><img src={arrow} /></a>
+                <div className='send' onClick={(e) => handleClick(e)}>
+                    <button type='submit'><span>{loading ? "loading ..." : "send message"}</span><img src={arrow} /></button>
                 </div>
+                </form>
             </Head>
         </Body>
     )
@@ -55,7 +102,7 @@ const Body = styled.body`
         
     }
     
-}
+
 
 .heading{
     text-align: center
@@ -152,15 +199,16 @@ const Body = styled.body`
     }
 
         .send{
-            a{
-                display: flex;
-                align-items: center;
+            button{
+                display: inline-flex;
+                justify-content: center;
                 gap: 15px;
                 text-decoration: none;
                 color: white;
                 background-color: #43AFE2;
-                padding: 20px 30px;
+                padding: 10px 30px;
                 border-radius: 6px;
+                border: none;
             }
         }
 

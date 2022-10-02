@@ -33,14 +33,13 @@ const Other = styled.div`
     padding: 15px;
     display: flex;
      flex-direction: column;
-     width: 100%;
      gap: 10px;
    
   }
   .othericons{
     display: grid;
     /* width: 100%; */
-    grid-template-columns: repeat(auto-fit,minmax(180px,100px));
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     gap: 30px;
 
 

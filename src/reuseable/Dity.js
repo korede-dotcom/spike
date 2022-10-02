@@ -6,6 +6,7 @@ import kitchen from '../assests/kitchen.jpeg';
 import Sink from '../assests/sink.jpeg'
 import Logo from '../assests/logo.png';
 
+
 const Dity = () => {
     return(
         // <>
@@ -15,6 +16,7 @@ const Dity = () => {
                 <img src={Jakuzi} />
                 <img src={kitchen} />
                 <img src={Sink} />
+             
             </div>
             <Quote>
                     <img src={Logo} />

@@ -169,7 +169,7 @@ export default function BookingForm() {
         <h3>HOW OFTEN ?</h3>
         <small>It's all about matching you with the perfect clean for your home. Scheduling is flexible. Cancel or reschedule anytime. Discounts are applied based on selection.</small>
         <div className='rollover'>
-           {
+           {/* {
             rollover.map(r => (
                 <div key={r.id} className="rolloverbox">
                     <label htmlFor={r.id} id="lab">
@@ -179,13 +179,30 @@ export default function BookingForm() {
 
                 </div>
             ))
-           }
+           } */}
+             <Selects option={rollover}/>
         </div>
         </div>
-        {/* <div className='fourteen'>
+        <div className='fourteen'>
            <h3>WHO YOU ARE</h3>
            <p>This information will be used to contact you about your service</p>
+        </div>
+        <div className='fifteen'>
+        <Input type='text' placeholder="what is your name" />
+        </div>
+        <div className='sixteen'>
+        <Input type='email' placeholder="email" />
+        </div>
+        <div className='eighteen'>
+        <Input type='text' placeholder="enter your full address" />
+        </div>
+        <div className='nineteen'>
+        <Input type='text' placeholder="enter your full address" />
+        </div>
+        {/* <div className='twenty'>
+        <Input type='text' placeholder="phone number" />
         </div> */}
+        <button>submit</button>
 
 
     </Bookingform>
@@ -196,15 +213,17 @@ export default function BookingForm() {
 
 const Bookingform = styled.div`
 min-height: 100vh;
-width: 100vw;
- display: grid;
- grid-template-columns: repeat(5,1fr);
- gap: 20px;
- justify-content: center;
- /* box-shadow: 1px 2px 2px 2px #000; */
- padding: 10px;
- width: 50%;
- margin: 0 auto;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+gap: 20px;
+
+ max-width: 60%;
+   margin: 0 auto;
+
+   @media screen and(max-width:50em) {
+      max-width: 100%;
+   }
 
  h3{
     color: #43AFE2;
@@ -214,6 +233,7 @@ width: 100vw;
  * > small{
     word-break: break-all;
  }
+
 
 * > .rollover{
     display: flex;
@@ -239,117 +259,13 @@ width: 100vw;
  }
 
 
- .one{
-    grid-column: 2/5;
-    border:1px solid red;
-    grid-row: 1;
- }
- .two{
-    grid-column: 1/4;
-    grid-row: 2/3;
- }
- .three{
-    grid-column: 1/4;
-    grid-row: 3/4;
- }
- .four{
-    grid-column: 1/3;
-    grid-row: 4/5;
- }
- .five{
-    grid-column: 3/4;
-    grid-row: 4/5;
- }
- .six{
-    grid-column: 1/4;
-    grid-row: 5/6;
- }
- .seven{
-    grid-column: 1/3;
-    grid-row: 6/7;
- }
- .eight{
-    grid-column: 3/4;
-    grid-row: 6/7;
- }
- .nine{
-    grid-column: 1/4;
-    grid-row: 7/8;
- }
- .ten{
-    grid-column: 1/4;
-    grid-row: 8/9;
- }
- .eleven{
-    grid-column: 1/3;
-    grid-row: 9/10;
- }
- .twelve{
-    grid-column: 1/3;
-    width: 100%;
-    /* display: grid; */
-    grid-row: 10/11;
-    /* * > input{
-        width: 30%;
-    } */
- }
- .thirteen{
-    grid-column: 1/3;
-    grid-row: 11/12;
-    display: flex;
-    flex-direction: column;
-   gap: 10px;
- }
+
  
 
- @media screen and (max-width:80em){
-    gap: 10px;
-    grid-template-columns: 1fr 1fr;
-    }
+ 
 
- @media screen and (max-width:60em){
-    zoom: 0%;
-    gap: 10px;
-    /* grid-template-columns: 1fr; */
 
-    .one{
-    grid-column: 1/4;
-    grid-row: 1;
- }
- .two{
-    grid-column: 1/4;
-    grid-row: 2/3;
- }
- .three{
-    grid-column: 1/4;
-    grid-row: 3/4;
- }
- .four{
-    grid-column: 1/2;
-    grid-row: 4/5;
- }
- .five{
-    grid-column: 3/4;
-    grid-row: 4/5;
- }
- .six{
-    grid-column: 1/2;
-    grid-row: 5/6;
- }
- .seven{
-    grid-column: 1/2;
-    grid-row: 6/7;
- }
- .eight{
-    grid-column: 3/4;
-    grid-row: 7/8;
- }
- .eight{
-    grid-column: 1/4;
-    grid-row: 8/9;
- }
-
-    }
+    
 
 
 `
