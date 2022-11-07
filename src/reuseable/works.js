@@ -17,14 +17,18 @@ const Works = ({image, step, about}) => {
 const Steps = Styled.div`
     display: flex;
     align: center;
+    gap: 30px;
+    width: 100%;
     `;
     const Image = Styled.div`
+    width: 100%;
     display: flex;
     justify-content: space-around;
     flex-direction: column;  
     align-items: center;
-    // gap: 20px;
-    height: 250px;
+    gap: 20px;
+    /* height: 250px; */
+  
     
     @media screen and (max-width: 800px){
         width: 300px;
@@ -57,7 +61,7 @@ const Steps = Styled.div`
     }
     .p{
         p {
-        width: 300px;
+        /* width: 300px; */
         }
     }
 `;

@@ -8,6 +8,7 @@ import Cleaning from '../../reuseable/Cleaning';
 // import Sink from '../../assests/sink.jpeg';
 // import Logo from '../../assests/logo.png';
 import Dity from '../../reuseable/Dity';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return(
@@ -15,7 +16,10 @@ const Footer = () => {
             <Community />
             <Render>
                <Cleanings><Cleaning title='"keeping your howe or offices clean can be hard to manage"'  words1="we're got your back, being open 7 days a week allows" words2="us accomodate anyone's unique shedule "/></Cleanings>
-                <h4>Book us</h4>
+               
+                <h4>
+                    <Link to="/booknow">Book us</Link>
+                </h4>
             </Render>
             {/* <Dity>
                 <img src={Toilet} />
@@ -36,7 +40,10 @@ const Footer = () => {
 }
 
 const Container = styled.div`
-
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
 `;
 const Render = styled.div`
     display: flex;

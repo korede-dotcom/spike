@@ -15,30 +15,36 @@ const AboutUS = () => {
             </div>
             <Cleaning>
                 <div className='clean'>
-                    <h1>"keeping your home or office clean <br/> can be hard to manage" </h1> 
+                    <h1>"keeping your home or office clean <br/>  can be hard to manage" </h1> 
                     <p>we've got your back,being open 7 days a week allows <br/> us to aid with anyone's unique schedule</p>
-                    <div className='button'>
-                        <Link to="/booknow"><h3>Book Us</h3></Link>
-                    </div>
+                        <Link to="/booknow" className='button'>
+                            <h3>Book Us</h3>
+                            </Link>
                 </div>
             </Cleaning> 
          </Top>      
-            <Dities>
+            {/* <Dities>
                 <Dity />
-            </Dities>  
+            </Dities>   */}
+            <Bottom>
+
+            </Bottom>
         </Aboutcontainer>
     )
 }
 
-
+const Bottom = styled.div`
+    
+`
 const Aboutcontainer = styled.div`
 overflow: hidden;
 width: 100vw;
 
 
-* a{
+/* a{
     text-decoration: none;
-}
+     color: #fff;
+} */
 
 `;
 
@@ -87,11 +93,12 @@ const Cleaning = styled.div`
         background-color: #000000;
         border-radius: 50px 50px 50px 50px;
         padding: 15px 30px;
-        
-        a{
-            color: white;
-            font-size: 13px;
-    }
+        margin-bottom: 20px;
+        h3{
+            text-decoration: none;
+     color: #fff;
+        }
+      
     }
 }
 `;

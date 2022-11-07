@@ -19,9 +19,10 @@ const Community = () => {
 
 const Owner = styled.div`
     display: flex; 
+    width: 100%;
     // padding: 0 80px;
     gap: 30px;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 50px;
     @media screen and (max-width: 1000px){
 
@@ -40,12 +41,14 @@ const Owner = styled.div`
     }
     P{
         // line-height: 25px;
-        color: #7A7A7A;
-        font-size: 2vw;
+        /* color: #7A7A7A;
+        font-size: 2vw; */
     }
 `;
 const Values = styled.div`
-    width: 40%;
+    /* width: 40%; */
+    padding: 10px;
+    width: 50%;
     padding: 10px;
 
     @media screen and (max-width: 1000px){
@@ -63,6 +66,9 @@ const Values = styled.div`
 const CleanHome = styled.div`
     // width:100%;
     width: 60%;
+    img{
+        border-radius: 18px;
+    }
 
     @media screen and (max-width: 1000px){
         display: flex;

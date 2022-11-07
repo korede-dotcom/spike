@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from "../assests/logo.png"
 
 
 const Learn = () => {
     return(
       <LearnMore>
+        <div className='learnmoreparent'>
           <div className='more'>
                 <h1>Learn more about who we are</h1>
               <p>connecting communities and cultures with families and individuals alike through one mission. Delivering the best cleans and products to any home</p>
@@ -13,16 +15,36 @@ const Learn = () => {
               <h4>community, culture, kindness</h4>
               <p>our three core values match our one mission. Delivering the best spick span leaning specialists,creating the best spine span cleaning products to every family and home,creating  service based aroundhonesty and reliability</p>
           </div>
+        </div>
+        <div className='learnmoreimg'>
+          <img src={logo} />
+
+        </div>
       </LearnMore>
         )
     }
 
 
     const LearnMore = styled.div`
-        width: 50%;
         display: flex;
-        flex-direction: column;
-        gap: 3vh;
+        justify-content: space-between;
+        /* flex-direction: column; */
+        .learnmoreparent{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+            width: 50%;
+            
+        }
+        .learnmoreimg{
+            width: 50%;
+            text-align: center;
+        }
+        img{
+            height: 200px;
+          
+        }
         h1{
             font-size: 3.5vh;
         }

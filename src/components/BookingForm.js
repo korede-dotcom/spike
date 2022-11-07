@@ -17,51 +17,76 @@ import { useState } from 'react'
 
 export default function BookingForm() {
    //  const [select,setSelect] = useState(!true)
-   const [select, setselect] = useState()
+   const [select, setselect] = useState({
+     serviceType:"",
+     bedRoom:"",
+     bathRoom:"",
+     kitchen:"",
+     test:""
+
+   })
+
+   console.log(select)
+   const handleOnChange = (e) => {
+    const { value, name } = e.target
+    setselect((prev) => {
+        return {...prev, [name]:value}
+     })
+     
+ }
     const others = [
       {
         id:1,
         name:"cabinet",
+        value:"cabinet",
         icon:cabinet,
       },
       {
         id:2,
         name:"dishwasher",
+        value:"dishwasher",
         icon:dishwasher,
       },
       {
         id:3,
         name:"garage",
+        value:"garage",
         icon:garage,
       },
       {
         id:4,
         name:"fridge",
+        value:"fridge",
         icon:fridge,
       },
       {
         id:5,
         name:"laundry",
+        value:"laundry",
         icon:laundry,
       },
       {
         id:6,
         name:"microwave",
+        value:"microwave",
         icon:microwave,
       },
       {
         id:7,
         name:"oven",
+        value:"oven",
         icon:oven,
       },
       {
         id:8,
         name:"wall",
+        value:"wall",
         icon:wall,
       },
       {
         id:9,
         name:"window",
+        value:"window",
         icon:window,
       },
     ]
@@ -99,19 +124,23 @@ export default function BookingForm() {
       const rollover = [
         {
             id:1,
-            name:"One Time"
+            name:"One Time",
+            value:"One Time"
         },
         {
             id:2,
-            name:"Weekly"
+            name:"Weekly",
+            value:"Weekly"
         },
         {
             id:3,
-            name:"Bi weekly"
+            name:"Bi weekly",
+            value:"Bi weekly"
         },
         {
             id:4,
-            name:"Monthly"
+            name:"Monthly",
+            value:"Monthly"
         },
       ]
     // const options = [
@@ -128,35 +157,34 @@ export default function BookingForm() {
         <div className='two'>
             <p>CHOOSE SERVICE TYPE</p>
             {/* <br></br> */}
-        <Selects option={options} value={select} onChange={e => setselect(e.target.value)}/>
+        <Selects option={options} name="serviceType" selectedValue={handleOnChange}/>
              {/* <Input type='text' placeholder="text" /> */}
         </div>
         <div className='three'>
         <p>TELL US ABOUT YOUR HOME</p>
         </div>
         <div className='four'>
-        <Selects option={rooms}/>
+        <Selects option={rooms} name="bedRoom" selectedValue={handleOnChange}/>
         </div>
         <div className='five'>
-        <Selects option={bathrooms}/>
+        <Selects option={bathrooms} name="bathRoom" selectedValue={handleOnChange}/>
         </div>
         <div className='six'>
              {/* <Input/> */}
-             <Selects option={kitchen}/>
+             <Selects option={kitchen} name="kitchen" selectedValue={handleOnChange}/>
         </div>
         <div className='seven'>
             {/* <Input/> */}
-             <Selects option={bathrooms}/>
+             <Selects option={slightlydirty} selectedValue={handleOnChange}/>
         </div>
         <div className='eight'>
-             <Selects option={slightlydirty}/>
+        {/* <Selects option={options} selectedValue={handleOnChange}/> */}
         </div>
         <div className='nine'>
-        <Selects option={options}/>
+        <Others others={others} name="test" selectExtra={handleOnChange}/>
         </div>
         <div className='ten'>
         {/* <Selects option={options}/> */}
-        <Others others={others} selectExtra={(e) => selectExtra(e)}/>
         </div>
         <div className='eleven'>
         <h3>WHEN WOULD YOU LIKE US TO COME?</h3>
@@ -180,7 +208,7 @@ export default function BookingForm() {
                 </div>
             ))
            } */}
-             <Selects option={rollover}/>
+             <Selects option={rollover} onChange={handleOnChange}/>
         </div>
         </div>
         <div className='fourteen'>

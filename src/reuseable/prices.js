@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Styled from 'styled-components';
 
 
@@ -14,11 +15,13 @@ const Prices = ({plan, starting, currency, amount, duration, ideals, wkprices, b
                 <p>{duration}</p>
             </Center>
             <Middle>
-                <p className='idealP'>{ideals}</p>
-                <p>{wkprices}</p>
+                <h4 className='idealP'>{ideals}</h4>
+                {/* <p>{wkprices}</p> */}
             </Middle>
             <Bottom>
-                <h3>{booknow}</h3>
+                <h3>
+                    <Link to="booknow">{booknow}</Link>
+                </h3>
             </Bottom>
         </Container>
     )
@@ -30,10 +33,13 @@ const Container = Styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    min-height: 500px;
+    min-height: 450px;
     // width: 400px;
-    padding: 20px 0px;
-    background-color: rgb(22, 80, 163);
+    padding: 10px 0px;
+    /* background-color: rgb(22, 80, 163); */
+    /* background-color: #43AFE2; */
+    background: #1650A3;
+    border-radius:20% ;
 `;
 const Head = Styled.div`
     h2{
@@ -73,10 +79,12 @@ const Head = Styled.div`
     `;
     const Middle = Styled.div`
     text-align: center;
-    color: rgb(67, 175, 226);
+    /* color: rgb(67, 175, 226); */
+    
 
     .idealP{
-        200px;
+        letter-spacing: -1px;
+        color: #fff;
     }
     @media screen and (max-width: 800px){
         width:300px;
@@ -88,19 +96,20 @@ const Head = Styled.div`
         color: rgb(67, 175, 226);
             padding: 13px 20px;
             border-radius: 6px;
-            background-color: white;
+             background-color: white;
+             /*
             box-shadow: 0px 0px 10px 11px rgba(227,227,227,0.75) inset;
             -webkit-box-shadow: 0px 0px 10px 11px rgba(227,227,227,0.75) inset;
-            -moz-box-shadow: 0px 0px 10px 11px rgba(227,227,227,0.75) inset;
+            -moz-box-shadow: 0px 0px 10px 11px rgba(227,227,227,0.75) inset; */
             text-transform: Capitalize  
         }
         &:hover{
             cursor: pointer;
             font-weight: bold;
             // font-size: 20px;
-            box-shadow: 0px 0px 10px 10px rgba(4,29,255,1);
+            /* box-shadow: 0px 0px 10px 10px rgba(4,29,255,1);
             -webkit-box-shadow: 0px 0px 10px 10px rgba(4,29,255,1);
-            -moz-box-shadow: 0px 0px 10px 10px rgba(4,29,255,1);
+            -moz-box-shadow: 0px 0px 10px 10px rgba(4,29,255,1); */
         }
 `;
 

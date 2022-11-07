@@ -5,11 +5,11 @@ import styled from 'styled-components'
 
 
 
-export default function Selects({option,selectedValue}) {
+export default function Selects({option,selectedValue,name}) {
   return (
     <SelectContainer>
-       <select onChange={selectedValue} >
-          {option.map(d => <option value={d.value} key={d.value}>{d.value}</option>)}
+       <select name={name} onChange={selectedValue} >
+          {option.map(d => <option value={d.value} name={name} key={d.value}>{d.value}</option>)}
        </select>
     </SelectContainer>
   )

@@ -42,27 +42,12 @@ export default function Landing() {
             </div>
           </Hero>
         {/* </Layout> */}
-          {/* <Card>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#43AFE2" className="card3"/>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#43AFE2" className="card3"/>
-          </Card>
-          <Card>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#43AFE2" className="card1"/>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#1650A3" className="card2"/>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#43AFE2" className="card3"/>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#1650A3" className="card2"/>
-          </Card>
-          <Card>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#43AFE2" className="card1"/>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#1650A3" className="card2"/>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#43AFE2" className="card3"/>
-            <Cards icon={<BsArrowRight/>} large="312" small="Bookings" color="#1650A3" className="card2"/>
-          </Card> */}
+         
           <Cleanings title="choose a cleaning plan"  words1="we're known for our flexible subscripttion model, leave it to you to change," words2="customize, and add whatever details you'd like! "/>
           <Prices>
               <Price plan="Regular" starting="starting at" currency="$" amount="90" duration="2 hours, per clean" ideals="ideal for one bedroom apartment and other similar size spaces." booknow="book now"/>
-              <Price plan="Regular" starting="starting at" currency="$" amount="90" duration="2 hours, per clean" ideals="ideal for one bedroom apartment and other similar size spaces." booknow="book now"/>
-              <Price plan="Regular" starting="starting at" currency="$" amount="90" duration="2 hours, per clean" ideals="ideal for one bedroom apartment and other similar size spaces." booknow="book now"/>
+              <Price plan="neatup" starting="starting at" currency="$" amount="90" duration="2 hours, per clean" ideals="ideal for one bedroom apartment and other similar size spaces." booknow="book now"/>
+              <Price plan="sparkling" starting="starting at" currency="$" amount="90" duration="2 hours, per clean" ideals="ideal for one bedroom apartment and other similar size spaces." booknow="book now"/>
           </Prices>
           <Works>
             <WordCon>
@@ -70,20 +55,23 @@ export default function Landing() {
               <Inherit>
                   <Work image={Step1}  step="step 1" about="Select the size of your home" />
                   <Arrows><img src={Arrow} /></Arrows>
-                  <Work image={Step2}  step="step 1" about="Select the level of cleanliness your home is in" />
+                  <Work image={Step2}  step="step 2" about="Select the level of cleanliness your home is in" />
                   <Arrows><img src={Arrow} /></Arrows>
-                  <Work image={Step3}  step="step 1" about="schedule your prefered day and 2-HR booking window" />
+                  <Work image={Step3}  step="step 3" about="schedule your prefered day and 2-HR booking window" />
               </Inherit>
             </WordCon>
+            
           </Works>
-          <Images>
+        
+         
+          {/* <Images>
             <Carousel>
             <img src={Toilet} />
                 <img src={Jakuzi} />
                 <img src={kitchen} />
                 <img src={Sink} />
             </Carousel>
-          </Images>
+          </Images> */}
 
     </div>
   )
@@ -112,14 +100,15 @@ const Hero = styled.div`
     margin-top: 7vh;
     
     & > .herocontent{
-        // height: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        /* background-image: url(${landingImg}); */
+        background-image: url(${landingImg});
         background-position: center center;
         background-size: cover;
         object-position: center;
+        /* margin-top: 200px; */
        
     }
     .herotext{
@@ -163,7 +152,7 @@ const Hero = styled.div`
             text-align: center;
             font-size: 45px;
             color: #010f;
-            width: 99vw;
+            /* width: 99vw; */
         }
 
         p{
@@ -231,6 +220,11 @@ const Hero = styled.div`
   //  grid-column: 2/12;
   gap: 2em;
   padding: 25px;
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
   
   @media screen and (max-width: 800px){
       //  grid-column: 2/12;

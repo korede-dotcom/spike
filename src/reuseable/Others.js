@@ -8,19 +8,21 @@ export default function Others({others,selectExtra}) {
           <div className='otherstext'>
             <p>ADD EXTRAS</p>
           </div>
-          <div className='othericons'>
-        
             {
               others.map(other => (
+          <div className='othericons'>
+        
+                <label htmlFor='check'></label>
+              <input type="checkbox" id='check'/>
               <div className='box' key={other.id} >
                  <img src={other.icon} onClick={(e,i) => selectExtra(e,i)} />
                  <small>{other.name}</small>
               </div>
 
+          </div>
               ))
             }
 
-          </div>
          </div>
 
     </Other>
