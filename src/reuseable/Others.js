@@ -1,28 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Others({others,selectExtra}) {
+export default function Others({others,selectExtra,isSelected}) {
+
+  console.log(isSelected)
   return (
     <Other>
     <div className='others'>
           <div className='otherstext'>
             <p>ADD EXTRAS</p>
           </div>
+          <div className='boxx'>
             {
               others.map(other => (
-          <div className='othericons'>
-        
-                <label htmlFor='check'></label>
-              <input type="checkbox" id='check'/>
-              <div className='box' key={other.id} >
-                 <img src={other.icon} onClick={(e,i) => selectExtra(e,i)} />
-                 <small>{other.name}</small>
+                  // <div className='othericons'id="check" >
+                      <label className='othericons box' key={other.id} id="check"  htmlFor={other.name}>
+                      {/* <label className={`${isSelected === true ? 'othericons box checkeditem' : 'othericons box'}`} key={other.id} id="check"  htmlFor={other.name}> */}
+                      <input type="checkbox" id={other.name} name={other.name} className="ischecked" onChange={selectExtra}/>
+                        <img src={other.icon} />
+                        <small>{other.name}</small>
+                      </label>
+                  // </div>
+
+                
+                ))
+              }
+
               </div>
-
-          </div>
-              ))
-            }
-
          </div>
 
     </Other>
@@ -30,6 +34,13 @@ export default function Others({others,selectExtra}) {
 }
 
 const Other = styled.div`
+.boxx{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 20px;
+
+
+}
 
 .others{
     padding: 15px;
@@ -46,11 +57,11 @@ const Other = styled.div`
 
 
   }
-  .othericons .box img{
+  .othericons  img{
     height: 50px;
   }
 
-  .othericons .box {
+ .box {
     border: 1px solid #43AFE2;
     padding: 10px;
     display: inline-flex;
@@ -61,12 +72,35 @@ const Other = styled.div`
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+    
+   & > .checkeditem{
+      background-color: #43AFE2 !important;
+    }
   }
+  input[type="checkbox"]{
+    pointer-events: none;
+    opacity: 0;
+  }
+  .checkeditem{
+      background-color: #43AFE2 !important;
+    }
   .othericons .box:hover{
     background-color: #43AFE2;
+    
   }
-  .selected{
+
+  .box input[type="checkbox"]:checked::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #43AFE2 !important;
+  }
+  
+
+  /* .othericons .box:hover{
     background-color: #43AFE2;
+  } */
+  .selected{
   }
   .othertext{
     @media screen and(max) {

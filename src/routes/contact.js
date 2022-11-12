@@ -24,7 +24,7 @@ const Contact = () => {
         // formData.append('message', message);
         setLoading(true)
 
-        const response = await fetch("http://localhost:1300/contact",{
+        const response = await fetch("https://spikebe.onrender.com/contact",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

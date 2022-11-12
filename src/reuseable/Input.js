@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Input({change,type,placeholder}) {
+export default function Input({change,type,placeholder,name}) {
   return (
     <InputConatiner>
-        <input type={type} placeholder={placeholder} onChange={change}/>
+        <input type={type} placeholder={placeholder} name={name} onChange={change}/>
     </InputConatiner>
   )
 }

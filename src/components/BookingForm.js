@@ -16,15 +16,29 @@ import { useState } from 'react'
 
 
 export default function BookingForm() {
-   //  const [select,setSelect] = useState(!true)
+    const [isSelected,setIsSelected] = useState(!false)
    const [select, setselect] = useState({
      serviceType:"",
      bedRoom:"",
      bathRoom:"",
      kitchen:"",
-     test:""
-
+     name:"",
+     email:"",
+     cleaningDate:"",
+     lastName:"",
+     homeStatus:"",
+     address:"",
+     often:"",
+     city:"",
+     state:"",
+     zipcode:"",
+     phone:"",
+     comment:""
    })
+   const [loading,setLoading] = useState(false)
+
+   const [extras,setExtras] = useState([])
+   console.log(extras)
 
    console.log(select)
    const handleOnChange = (e) => {
@@ -33,6 +47,25 @@ export default function BookingForm() {
         return {...prev, [name]:value}
      })
      
+ }
+
+ const handleOnChangeOthers = (e) => {
+console.log(isSelected)
+  const { value, name } = e.target
+  if(isSelected){
+    e.target.parentElement.style.backgroundColor = "#43AFE2"
+  }else{
+    e.target.parentElement.parentElement.style.backgroundColor = "transparent"
+  }
+  
+  // setIsSelected(!false)
+  if(!extras?.includes(name)){
+    setExtras((prev)=> {
+      return [...prev, name]
+    })
+  }else{
+   
+  }
  }
     const others = [
       {
@@ -116,9 +149,9 @@ export default function BookingForm() {
         { value: '3 kitchen', label: 'Vanilla' }
       ]
     const slightlydirty = [
-        { value: '1 Room', label: 'Chocolate' },
-        { value: '2 Room', label: 'Strawberry' },
-        { value: '3 Room', label: 'Vanilla' }
+        { value: 'Dirty', label: 'Chocolate' },
+        { value: 'Really Dirty', label: 'Strawberry' },
+        { value: 'Extreme Dirty', label: 'Vanilla' }
       ]
 
       const rollover = [
@@ -148,6 +181,37 @@ export default function BookingForm() {
     //     { value: 'Deep Clean', label: 'Strawberry' },
     //     { value: 'Moveout', label: 'Vanilla' }
     //   ]
+    async function submitRequest (e) {
+      e.preventDefault()
+      // formData.append('name', name);
+      // formData.append('email', email);
+      // formData.append('subject', subject);
+      // formData.append('phone', phone);
+      // formData.append('message', message);
+      setLoading(true)
+
+      const response = await fetch("https://spikebe.onrender.com/bookings",{
+          method:"POST",
+          headers:{
+              "Content-Type":"application/json"
+          },
+          body:JSON.stringify({
+             ...select,
+             extra:[...extras]
+
+          })
+                  
+      })
+      const data = await response.json()
+      console.log(data)
+   
+      setLoading(false)
+      document.querySelector("dialog").showModal()
+      setTimeout(() => {
+        document.querySelector("dialog").close()
+      }, 2000
+      );
+  }
   return (
     <Bookingform>
        {/* <Header /> */}
@@ -175,13 +239,13 @@ export default function BookingForm() {
         </div>
         <div className='seven'>
             {/* <Input/> */}
-             <Selects option={slightlydirty} selectedValue={handleOnChange}/>
+             <Selects option={slightlydirty} name="homeStatus" selectedValue={handleOnChange}/>
         </div>
         <div className='eight'>
         {/* <Selects option={options} selectedValue={handleOnChange}/> */}
         </div>
         <div className='nine'>
-        <Others others={others} name="test" selectExtra={handleOnChange}/>
+        <Others others={others} selectExtra={handleOnChangeOthers} isSelected={isSelected}/>
         </div>
         <div className='ten'>
         {/* <Selects option={options}/> */}
@@ -191,7 +255,7 @@ export default function BookingForm() {
         <small>Choose the date and arrival window* that works for you.<br/> If you need a last-minute appointment give us a call at (206) 294-9654.</small>
         </div>
         <div className='twelve'>
-               <Input type='datetime-local' placeholder="choose a date and time" />
+               <Input type='datetime-local' placeholder="choose a date and time" name="cleaningDate" change={handleOnChange}/>
         </div>
         <div className='thirteen'>
         <h3>HOW OFTEN ?</h3>
@@ -208,7 +272,7 @@ export default function BookingForm() {
                 </div>
             ))
            } */}
-             <Selects option={rollover} onChange={handleOnChange}/>
+             <Selects option={rollover} name="often" selectedValue={handleOnChange}/>
         </div>
         </div>
         <div className='fourteen'>
@@ -216,21 +280,51 @@ export default function BookingForm() {
            <p>This information will be used to contact you about your service</p>
         </div>
         <div className='fifteen'>
-        <Input type='text' placeholder="what is your name" />
+          <small>What is your name</small>
+        <Input type='text' placeholder="what is your name" name="name" change={handleOnChange}  />
         </div>
         <div className='sixteen'>
-        <Input type='email' placeholder="email" />
+        <small>Enter your email</small>
+        <Input type='email' placeholder="enter your email" name="email" change={handleOnChange}/>
         </div>
         <div className='eighteen'>
-        <Input type='text' placeholder="enter your full address" />
+        <small>Other Names</small>
+        <Input type='text' placeholder="Other Names" name="lastName" change={handleOnChange}   />
         </div>
         <div className='nineteen'>
-        <Input type='text' placeholder="enter your full address" />
+        <small>Enter your full Address</small>
+        <Input type='address' placeholder="enter your full address" name="address" change={handleOnChange} />
+        </div>
+        <div className='twenty'>
+        <small>What City are you?</small>
+        <Input type='text' placeholder="city" name="city" change={handleOnChange} />
+        </div>
+        <div className='21'>
+        <small>What State are you?</small>
+        <Input type='text' placeholder="state" name="state" change={handleOnChange} />
+        </div>
+        <div className='22'>
+        <small>Tell Us your zipcode</small>
+        <Input type='text' placeholder="ZIp code" name="zipcode" change={handleOnChange} />
+        </div>
+        <div className='23'>
+        <small>We'll Like to Call you</small>
+        <Input type='number' placeholder="phone number" name="phone" change={handleOnChange} />
+        </div>
+        <div className='24'>
+        <small>Tell us about what you need done</small>
+        {/* <Input type='number' placeholder="phone number" name="phone" change={handleOnChange} /> */}
+        <textarea name='comment' onChange={handleOnChange} placeholder="leave a comment" rows='10' cols='50'></textarea>
         </div>
         {/* <div className='twenty'>
         <Input type='text' placeholder="phone number" />
         </div> */}
-        <button>submit</button>
+        <div className='lastbtn'>
+        <button onClick={submitRequest}>submit</button>
+        <dialog>
+          <h5>modal</h5>
+        </dialog>
+        </div>
 
 
     </Bookingform>
@@ -251,6 +345,36 @@ gap: 20px;
 
    @media screen and(max-width:50em) {
       max-width: 100%;
+   }
+
+   * > input,textarea{
+    border-color: #43AFE2;
+    width: 100%;
+   }
+    .lastbtn{
+    width: 50% !important;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+      
+    dialog{
+      width: 50ch;
+    }
+
+    button{
+      width: 100%;
+      padding: 9px;
+      margin-bottom: 50px;
+      background-color: #43AFE2;
+      border: none;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    button:hover{
+      color: #fff;
+      cursor: pointer;
+    }
+
    }
 
  h3{
