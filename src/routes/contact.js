@@ -114,6 +114,7 @@ const Body = styled.body`
     // .................MEDIA QUERY..................//
     @media screen and (max-width: 850px){
         align-items: center;
+        padding: 1.5em;
         .input{
             input{
                 font-weight: bold;
@@ -199,6 +200,7 @@ const Body = styled.body`
     }
 
         .send{
+            padding:0 1.5em;
             button{
                 display: inline-flex;
                 justify-content: center;

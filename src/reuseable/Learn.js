@@ -40,6 +40,10 @@ const Learn = () => {
         .learnmoreimg{
             width: 50%;
             text-align: center;
+
+            @media screen and (max-width: 50em) {
+                display: none;
+            }
         }
         img{
             height: 200px;
