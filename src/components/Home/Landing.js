@@ -5,6 +5,7 @@ import landingImg from '../../assests/landing.jpeg'
 import Buttons from '../../reuseable/Buttons'
 // import AiOutlinePhone from 'react-icons/ai';
 import guarantee from '../../assests/guarantee.png'
+import { useNavigate } from 'react-router-dom';
 
 import { BsTelephone } from 'react-icons/bs';
 import { BsArrowRight } from 'react-icons/bs';
@@ -23,7 +24,21 @@ import Toilet from '../../assests/toilet.jpg';
 import Jakuzi from '../../assests/jakuzi.jpg';
 import kitchen from '../../assests/kitchen.jpeg';
 import Sink from '../../assests/sink.jpeg'
+import { Link } from 'react-router-dom'
 export default function Landing() {
+
+  const navigate = useNavigate()
+
+const makeCall = () => {
+ const aTag = document.createElement("a")
+ aTag.href = "tel:123-456-7890"
+ console.log(aTag)
+ aTag.click()
+
+}
+
+
+
   return (
     <div>
         {/* <Layout> */}
@@ -33,9 +48,10 @@ export default function Landing() {
                   <h1>Providing the highest standard cleaning,<br/>with the best price possible.</h1>
                   <p>We believe cleaning should be a luxury every family can afford. For the last two years along with several awards we’ve accomplished just that.</p>
                     <div className='herofunc'>
-                        <Buttons text="Book Now" icon={<BsArrowRight/>}/>
-                        <Buttons text="Call Us" icon={<BsTelephone/>}/>
+                        <Buttons text="Book Now" icon={<BsArrowRight/>} click={() => navigate('/booknow')} />
+                        <Buttons text="Call Us" icon={<BsTelephone/>} click={makeCall}/>
                     </div>
+                  
                   <small>M-F 8am-4pm – Saturdays by appointment only – Sun Offices are closed  After hour support: s</small>
                   <img src={guarantee} />
                 </div>
@@ -125,10 +141,13 @@ const Hero = styled.div`
           }
           @media screen and (max-width: 800px){
           h1{
+            
             padding-top: 7vh;
             width: 99vw;
-            line-height: 3.5vh;
-            font-size: 4vw !important;
+            /* line-height: 3.5vh; */
+            font-size: 26px !important;
+            /* line-height: 3.5vh; */
+            /* font-size: 4vw !important; */
           }
           p{
             width: 95vw;
@@ -136,13 +155,13 @@ const Hero = styled.div`
           }
         }
             
-          @media screen and (max-height: 700px){
+          /* @media screen and (max-height: 700px){
             h1{
             padding-top: 15vh;
             font-size: 3vw !important;
             line-height: 45px;
             }
-          }
+          } */
 
 
        h1{
@@ -168,6 +187,12 @@ const Hero = styled.div`
             justify-self: center;
             grid-column: 3/5;
             grid-row: 3/4;
+
+            @media screen and (max-width: 40em) {
+             > button{
+                font-size: 10px;
+              }
+            }
         }
         small{
             justify-self: center;

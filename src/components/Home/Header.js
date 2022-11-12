@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import {links} from '../../routes/nav'
 import styled from 'styled-components'
 import logo from '../../assests/logo.png'
+import { useNavigate } from 'react-router-dom';
 
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { CgClose } from 'react-icons/cg';
@@ -16,13 +17,15 @@ function Header() {
       setShow(!show)
       console.log(show)
   }
+  const navigate = useNavigate()
+
 
 
 
   return (
     <>
         <Navcontainer>
-        <img src={logo}/>
+        <img src={logo} onClick={()=> navigate("/")}/>
         {!show ? <HiMenuAlt2  height={6} width={5} className="menuicon" onClick={shoNav}/> : <CgClose  height={6} width={5} className="menuicon" onClick={shoNav}/> }
         <NavList className={show ? 'show' : ' '}>
         {links.map(link => <Link to={link.link} className={window.location.pathname === link.link ? 'active' : ''}>{link.name}</Link>)}

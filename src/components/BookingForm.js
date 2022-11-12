@@ -12,6 +12,7 @@ import microwave from '../assests/microwave.svg'
 import oven from '../assests/oven.svg'
 import wall from '../assests/wall.svg'
 import window from '../assests/window.svg'
+import logo from '../assests/logo.png'
 import { useState } from 'react'
 
 
@@ -181,6 +182,7 @@ console.log(isSelected)
     //     { value: 'Deep Clean', label: 'Strawberry' },
     //     { value: 'Moveout', label: 'Vanilla' }
     //   ]
+    
     async function submitRequest (e) {
       e.preventDefault()
       // formData.append('name', name);
@@ -321,9 +323,19 @@ console.log(isSelected)
         </div> */}
         <div className='lastbtn'>
         <button onClick={submitRequest}>submit</button>
+        </div>
+        <div className='centerpoint'>
         <dialog>
-          <h5>modal</h5>
+          <div>
+          <img src={logo}/>
+          <h4>
+            Your Booking as been confirmed kindly check your email 
+          </h4>
+
+          </div>
+          
         </dialog>
+
         </div>
 
 
@@ -356,12 +368,9 @@ gap: 20px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-      
-    dialog{
-      width: 50ch;
-    }
 
-    button{
+
+  button{
       width: 100%;
       padding: 9px;
       margin-bottom: 50px;
@@ -375,7 +384,47 @@ gap: 20px;
       cursor: pointer;
     }
 
+  }
+  #centerpoint {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+
+  }
+
+  .centerpoint{
+   
+  }
+dialog {
+  margin: auto auto;
+    padding: 1em;
+    /* min-height: 35vh; */
+   background-color: #43AFE2;
+   border: none;
+   border-radius: 6px;
+   color: #fff;
+
+   > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    /* align-items: center; */
+    img{
+     width: 100px;
+     height: 50px;
+     object-fit: contain;
+     text-align: center;
+    }
+
    }
+
+}
+      
+
+   
+
+   
 
  h3{
     color: #43AFE2;

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Buttons({text,icon}) {
+function Buttons({text,icon,click,type}) {
   return (
-    <Button>
+    <Button onClick={click}>
         {text} {icon}
     </Button>
   )
