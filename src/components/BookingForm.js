@@ -130,9 +130,12 @@ console.log(isSelected)
        
     }
     const options = [
-        { value: 'Regular', label: 'Chocolate' },
-        { value: 'Deep Clean', label: 'Strawberry' },
-        { value: 'Moveout', label: 'Vanilla' }
+        { value: 'Home Apartment Cleaning', label: 'Home Apartment Cleaning' },
+        { value: 'Deep Cleaning', label: 'Strawberry' },
+        { value: 'Move-In & Move-Out Cleaning', label: 'Move-In & Move-Out Cleaning' },
+        { value: 'Office Cleaning', label: 'Office Cleaning' },
+        { value: 'Fumigation & Disinfectingg', label: 'Fumigation & Disinfecting' },
+        // { value: 'Move-In & Move-Out Cleaning', label: 'Vanilla' },
       ]
     const rooms = [
         { value: '1 Bedroom', label: 'Chocolate' },

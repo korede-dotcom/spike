@@ -1,11 +1,13 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
-import {useState} from 'react';
+// import {useState} from 'react';
 import Header from '../components/Home/Header';
 import Learning from '../reuseable/Learn';
 import Dity from '../reuseable/Dity';
 import { Link } from 'react-router-dom';
+import logo from '../assests/logo.png'
 const AboutUS = () => {
+const [now,setNow] = useState(new Date(Date.now()).getFullYear())
     return(
         <Aboutcontainer>
           <Top>
@@ -15,11 +17,19 @@ const AboutUS = () => {
             </div>
             <Cleaning>
                 <div className='clean'>
-                    <h1>"keeping your home or office clean <br/>  can be hard to manage" </h1> 
-                    <p>we've got your back,being open 7 days a week allows <br/> us to aid with anyone's unique schedule</p>
+                    <h1>OUR SERVICES</h1> 
+                    <p>We offer this range of services below to cater to a variety of your cleaning needs at all times.</p>
+                    <div className='dpt'>
+                        <p><strong>Home Apartment Cleaning:</strong> We offer you quality home care and maintenance with this service. Enjoy the benefits of a full-time housekeeper at no extra cost, this is our most requested service and customers who use our services once, come back for more.</p>
+                        <p><strong>Deep Cleaning:</strong> This is ideal for homes or spaces that have been unoccupied/not cleaned for a long time (several weeks, months, or years). Even if not selected, based on the condition of the place, we might carry out deep cleaning. This service also includes total interior cleaning and maintenance.</p>
+                        <p> <strong>Move-In & Move-Out Cleaning:</strong> This service is designed to give a deep thorough cleaning on floors, blinds, newly installed/uninstalled cabinets, wardrobes, toilets, etc. Every necessary home preparation for a new tenant. This service includes fumigation too.</p>
+                        <p> <strong>Fumigation & Disinfecting:</strong> Get an industry-standard disinfecting service for your home and business. We believe that every home or office deserves a clean and healthy environment always</p>
+                        <p><strong>Office Cleaning:</strong> We understand how difficult it is for businesses to keep up with housekeeping, this service is made available with small and large businesses/companies in mind. Designed to help your work environment neat, healthy, and conducive for your day-to-day operations.</p>
+                    </div>
                         <Link to="/booknow" className='button'>
                             <h3>Book Us</h3>
                             </Link>
+
                 </div>
             </Cleaning> 
          </Top>      
@@ -27,14 +37,43 @@ const AboutUS = () => {
                 <Dity />
             </Dities>   */}
             <Bottom>
-
+                <div className='footer'>
+                    <div className='side1'>
+                        <img src={logo}/>
+                        <p>Spike N Spin</p>
+                        {/* <small>We offer this range of services below to cater to a variety of your cleaning needs at all times</small> */}
+                    </div>
+                    <div className='side2'>
+                        <h2>Location</h2>
+                        <p>NO. 10 Lagos Island </p>
+                        <p>Lagos State Nigeria</p>
+                    </div>
+                    <div className='side2'>
+                    <small>&copy; {now}</small>
+                    </div>
+                </div>
             </Bottom>
         </Aboutcontainer>
     )
 }
 
 const Bottom = styled.div`
-    
+    background-color:rgb(67, 175, 226);
+    padding: 30px;
+    img{
+        height: 40px;
+    }
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width:40em){
+         display: block;
+        }
+        .side2{
+            line-height: 2;
+        }
+    }
 `
 const Aboutcontainer = styled.div`
 overflow: hidden;
@@ -75,6 +114,30 @@ const Cleaning = styled.div`
     text-align: center;
     gap: 3vh;
 
+    strong{
+        color: #000;
+    }
+
+    .dpt{
+        /* display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(700px,1fr));
+        justify-content: start;
+        text-align: justify; */
+       
+        /* gap: 20px;
+        text-align: center; */
+        display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    text-align: start;
+    gap: 30px;
+    @media screen and (max-width:40em){
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: start;
+    }
+    }
+
     h1{
     color: rgba(0,0,0,0.8);
     font-size: 2.5em;
@@ -83,7 +146,7 @@ const Cleaning = styled.div`
     }
 
     p{
-        text-align: center;
+        /* text-align: center; */
     color: #757575;
     font-size: 1em;
     font-weight: 400;

@@ -81,7 +81,7 @@ const CleanHome = styled.div`
         }
     }
 
-}
+
 
 `;
 

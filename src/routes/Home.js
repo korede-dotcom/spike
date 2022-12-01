@@ -8,6 +8,8 @@ export default function Home() {
   return (
     <Homecontainer>
         <Header/>
+        <Header/>
+        
         <Landing/>
         <Footer />
     </Homecontainer>

@@ -9,11 +9,14 @@ const Learn = () => {
         <div className='learnmoreparent'>
           <div className='more'>
                 <h1>Learn more about who we are</h1>
-              <p>connecting communities and cultures with families and individuals alike through one mission. Delivering the best cleans and products to any home</p>
+              <p>Spick ‘n’ span cleaning service is a top-quality based cleaning company located in Lagos, Nigeria</p>
           </div>
           <div className='kindness'>
               <h4>community, culture, kindness</h4>
-              <p>our three core values match our one mission. Delivering the best spick span leaning specialists,creating the best spine span cleaning products to every family and home,creating  service based aroundhonesty and reliability</p>
+              <p>Our cleaners are carefully trained, vetted, trustworthy, and highly skilled in the cleaning service. Quality delivery is our focus and we are sure to achieve that in every space/home entrusted in our care.</p>
+              <p>WE OFFER; Receptive and amiable customer care services 24/7 Timely, swift appointments Value for your money
+                </p>
+                <p>Enjoy full-time housekeeping services without having a live-in housekeeper, whether you are a busy professional, moving in/out of an office/apartment, finished hosting significant events, etc, we are available for you.</p>
           </div>
         </div>
         <div className='learnmoreimg'>

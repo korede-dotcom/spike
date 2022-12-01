@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
 import Community from '../../reuseable/community'
 import Cleaning from '../../reuseable/Cleaning';
@@ -6,11 +6,12 @@ import Cleaning from '../../reuseable/Cleaning';
 // import Jakuzi from '../../assests/jakuzi.jpg';
 // import kitchen from '../../assests/kitchen.jpeg';
 // import Sink from '../../assests/sink.jpeg';
-// import Logo from '../../assests/logo.png';
+import logo from '../../assests/logo.png';
 import Dity from '../../reuseable/Dity';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+    const [now,setNow] = useState(new Date(Date.now()).getFullYear())
     return(
         <Container>
             <Community />
@@ -35,10 +36,47 @@ const Footer = () => {
             <Dity />
 
             </Dities>
+            <Bottom>
+                <div className='footer'>
+                    <div className='side1'>
+                        <img src={logo}/>
+                        <p>Spike N Spin</p>
+                        {/* <small>We offer this range of services below to cater to a variety of your cleaning needs at all times</small> */}
+                    </div>
+                    <div className='side2'>
+                        <h2>Location</h2>
+                        <p>NO. 10 Lagos Island </p>
+                        <p>Lagos State Nigeria</p>
+                    </div>
+                    <div className='side2'>
+                    <small>&copy; {now}</small>
+                    </div>
+                </div>
+            </Bottom>
         </Container>
     )
 }
 
+const Bottom = styled.div`
+    background-color:rgb(67, 175, 226);
+    padding: 30px;
+    img{
+        height: 40px;
+    }
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width:40em){
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .side2{
+            line-height: 2;
+        }
+    }
+`
 const Container = styled.div`
     a {
         color: #fff;
